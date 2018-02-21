@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.epam.task04/web"
+        xmlns:tst="http://www.epam.task04/web">
+
+
+    <element name="web-app">
+        <complexType>
+            <choice maxOccurs="unbounded">
+                <element name="display-name" type="string"/>
+                <element name="welcome-file-list" type="tst:Welcome-file-list"/>
+                <element name="filter" type="tst:Filter"/>
+                <element name="filter-mapping" type="tst:Filter-mapping"/>
+                <element name="listener" type="tst:Listener"/>
+                <element name="servlet" type="tst:Servlet"/>
+                <element name="servlet-mapping" type="tst:Servlet-mapping"/>
+                <element name="error-page" type="tst:Error-page"/>
+            </choice>
+            <attribute name="id" type="string"/>
+            <attribute name="version" type="string"/>
+        </complexType>
+    </element>
+
+
+    <complexType name="Welcome-file-list">
+        <sequence>
+            <element name="welcome-file" type="string" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+
+    <complexType name="Filter">
+        <sequence>
+            <element name="filter-name" type="string"/>
+            <element name="filter-class" type="string"/>
+            <element name="init-param" type="tst:Init-param"/>
+        </sequence>
+    </complexType>
+
+
+    <complexType name="Filter-mapping">
+        <sequence>
+            <element name="filter-name" type="string"/>
+            <element name="url-pattern" type="anyURI"/>
+            <element name="dispatcher" type="string"/>
+        </sequence>
+    </complexType>
+
+
+    <complexType name="Listener">
+        <sequence>
+            <element name="listener-class" type="string"/>
+        </sequence>
+    </complexType>
+
+
+    <complexType name="Servlet">
+        <sequence>
+            <element name="servlet-name" type="string"/>
+            <element name="servlet-class" type="string"/>
+            <element name="init-param" type="tst:Init-param"/>
+        </sequence>
+    </complexType>
+
+
+    <complexType name="Servlet-mapping">
+        <sequence>
+            <element name="servlet-name" type="string"/>
+            <element name="url-pattern" type="anyURI"/>
+        </sequence>
+    </complexType>
+
+
+    <complexType name="Error-page">
+        <all>
+            <element name="exception-type" type="string"/>
+            <element name="location" type="anyURI"/>
+            <element name="error-code" type="int"/>
+        </all>
+    </complexType>
+
+
+    <complexType name="Init-param">
+        <sequence>
+            <element name="param-name" type="string"/>
+            <element name="param-value" type="string"/>
+        </sequence>
+    </complexType>
+
+
+</schema>
