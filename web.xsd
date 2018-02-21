@@ -42,7 +42,7 @@
     <complexType name="Filter-mapping">
         <sequence>
             <element name="filter-name" type="string"/>
-            <element name="url-pattern" type="anyURI"/>
+            <element name="url-pattern" type="tst:URL-simpleType"/>
             <element name="dispatcher" type="string"/>
         </sequence>
     </complexType>
@@ -67,7 +67,7 @@
     <complexType name="Servlet-mapping">
         <sequence>
             <element name="servlet-name" type="string"/>
-            <element name="url-pattern" type="anyURI"/>
+            <element name="url-pattern" type="tst:URL-simpleType"/>
         </sequence>
     </complexType>
 
@@ -75,7 +75,7 @@
     <complexType name="Error-page">
         <all>
             <element name="exception-type" type="string" minOccurs="0" />
-            <element name="location" type="anyURI" minOccurs="0" />
+            <element name="location" type="tst:URL-simpleType" minOccurs="0" />
             <element name="error-code" type="int" minOccurs="0" />
         </all>
     </complexType>
@@ -87,6 +87,12 @@
             <element name="param-value" type="string"/>
         </sequence>
     </complexType>
+
+    <simpleType name="URL-simpleType">
+        <restriction base="string">
+            <pattern value="/.*"/>
+        </restriction>
+    </simpleType>
 
 
 </schema>
