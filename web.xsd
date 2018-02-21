@@ -59,7 +59,7 @@
         <sequence>
             <element name="servlet-name" type="string"/>
             <element name="servlet-class" type="string"/>
-            <element name="init-param" type="tst:Init-param"/>
+            <element name="init-param" type="tst:Init-param" minOccurs="0" maxOccurs="unbounded"/>
         </sequence>
     </complexType>
 
@@ -74,9 +74,9 @@
 
     <complexType name="Error-page">
         <all>
-            <element name="exception-type" type="string"/>
-            <element name="location" type="anyURI"/>
-            <element name="error-code" type="int"/>
+            <element name="exception-type" type="string" minOccurs="0" />
+            <element name="location" type="anyURI" minOccurs="0" />
+            <element name="error-code" type="int" minOccurs="0" />
         </all>
     </complexType>
 
